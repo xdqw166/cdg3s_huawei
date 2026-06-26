@@ -7,12 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CategoryService {
+public class CategoryService extends BaseService<CategoryRepository> {
 
-    private final CategoryRepository repository;
-
-    public CategoryService(CategoryRepository repository) {
-        this.repository = repository;
+    CategoryService(CategoryRepository repository) {
+        super(repository);
     }
 
     public Category save(Category category) {

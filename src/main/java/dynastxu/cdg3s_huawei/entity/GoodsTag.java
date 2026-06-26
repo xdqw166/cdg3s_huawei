@@ -1,14 +1,14 @@
 package dynastxu.cdg3s_huawei.entity;
 
-import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-@Entity
-@Getter
 @Setter
+@Getter
+@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Category {
+public class GoodsTag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,16 +17,17 @@ public class Category {
     @NotNull
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
-    private Category parent;
+    private String color;
 
-    public Category(@NotNull String name) {
+    private String description;
+
+    public GoodsTag(@NotNull String name) {
         this.name = name;
     }
 
-    public Category(@NotNull String name, Category parent) {
+    public GoodsTag(@NotNull String name, String color, String description) {
         this.name = name;
-        this.parent = parent;
+        this.color = color;
+        this.description = description;
     }
 }

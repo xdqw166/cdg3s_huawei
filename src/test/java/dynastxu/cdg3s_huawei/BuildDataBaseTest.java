@@ -1,30 +1,44 @@
-package dynastxu.cdg3s_huawei.service;
+package dynastxu.cdg3s_huawei;
 
 import dynastxu.cdg3s_huawei.entity.Category;
+import dynastxu.cdg3s_huawei.entity.Goods;
+import dynastxu.cdg3s_huawei.entity.GoodsImage;
+import dynastxu.cdg3s_huawei.entity.GoodsTag;
+import dynastxu.cdg3s_huawei.service.CategoryService;
+import dynastxu.cdg3s_huawei.service.GoodsImageService;
+import dynastxu.cdg3s_huawei.service.GoodsService;
+import dynastxu.cdg3s_huawei.service.GoodsTagService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 @SpringBootTest
-public class CategoryServiceTests {
+public class BuildDataBaseTest {
+    @Autowired
+    private CategoryService categoryService;
 
     @Autowired
-    private CategoryService service;
+    private GoodsImageService goodsImageService;
+
+    @Autowired
+    private GoodsTagService goodsTagService;
+
+    @Autowired
+    private GoodsService goodsService;
 
     @Test
-    void save() {
-        Category category = new Category("Xiaomi手机");
-        service.saveOrUpdate(category);
-        assertNotNull(service.findByName("Xiaomi手机"));
+    void buildDataBase() {
+        buildCategory();
+        buildGoodsImage();
+        buildGoodsTag();
+        buildGoods();
     }
 
-    @Test
-    void saveAll() {
+    private void buildCategory() {
+        CategoryService service = categoryService;
+
         service.saveOrUpdate(new Category("Xiaomi手机"));
         service.saveOrUpdate(new Category("REDMI手机"));
         service.saveOrUpdate(new Category("手机配件"));
@@ -55,25 +69,37 @@ public class CategoryServiceTests {
         service.saveOrUpdate(new Category("数字系列", service.findByName("REDMI手机")));
     }
 
-    @Test
-    void listChild() {
-        Category phone = service.findByName("手机");
-        List<Category> child = service.listChild(phone);
+    private void buildGoodsImage() {
+        GoodsImageService service = goodsImageService;
+        String rootPath = "/images/goods";
 
-        System.out.println("父分类: " + phone.getName() + " (id=" + phone.getId() + ")");
-        System.out.println("子分类数量: " + (child != null ? child.size() : 0));
-        if (child != null) {
-            child.forEach(c -> System.out.println("  - " + c.getName() + " (id=" + c.getId() + ")"));
-        }
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/1.png"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/2.png"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/3.png"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/4.png"));
     }
 
-    @Test
-    void listRoots() {
-        List<Category> categories = service.listRoots();
+    private void buildGoodsTag() {
+        GoodsTagService service = goodsTagService;
 
-        System.out.println("根分类");
-        if (categories != null) {
-            categories.forEach(c -> System.out.println("  - " + c.getName()));
-        }
+        service.saveOrUpdate(new GoodsTag("小米上新"));
+        service.saveOrUpdate(new GoodsTag("换新补贴"));
+        service.saveOrUpdate(new GoodsTag("小时达"));
+    }
+
+    private void buildGoods() {
+        GoodsService service = goodsService;
+
+        service.saveIfUnique(Goods.builder()
+                .name("Xiaomi 17T Pro")
+                .price(3999f)
+                .isStartingPrice(true)
+                .category(categoryService.findByName("Xiaomi数字旗舰"))
+                .goodsTag(List.of(
+                        goodsTagService.findByName("小米上新"),
+                        goodsTagService.findByName("换新补贴")
+                ))
+                .build()
+        );
     }
 }

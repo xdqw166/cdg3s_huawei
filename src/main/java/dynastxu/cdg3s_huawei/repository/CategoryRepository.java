@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CategoryRepository extends
-        JpaRepository<Category, Long>,
-        CrudRepository<Category, Long> {
+public interface CategoryRepository extends BaseRepository<Category, Integer> {
 
     Optional<Category> findByName(String name);
 
