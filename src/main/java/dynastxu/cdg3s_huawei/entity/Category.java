@@ -1,7 +1,9 @@
 package dynastxu.cdg3s_huawei.entity;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.*;
+import org.jspecify.annotations.NonNull;
 
 @Entity
 @Table(name = "t_category")
@@ -13,13 +15,19 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
+    @Nonnull
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
-    public Category(String name, Category parent) {
+    public Category(@NonNull String name) {
+        this.name = name;
+    }
+
+    public Category(@NonNull String name, Category parent) {
         this.name = name;
         this.parent = parent;
     }
