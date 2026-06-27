@@ -98,11 +98,12 @@ public class BuildDataBaseTest {
                 .name("Xiaomi 17T Pro")
                 .price(3999f)
                 .isStartingPrice(true)
-                .category(categoryService.findByName("Xiaomi数字旗舰"))
+                .category(categoryService.findByName("Xiaomi 数字旗舰"))
                 .goodsTag(List.of(
                         goodsTagService.findByName("小米上新"),
                         goodsTagService.findByName("换新补贴")
                 ))
+                .mainImage(goodsImageService.findByImagePath("/images/goods/xiaomi_17t_pro/1.png"))
                 .build()
         );
     }
