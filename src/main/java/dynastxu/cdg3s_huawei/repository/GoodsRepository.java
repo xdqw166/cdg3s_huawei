@@ -1,6 +1,5 @@
 package dynastxu.cdg3s_huawei.repository;
 
-import dynastxu.cdg3s_huawei.entity.Category;
 import dynastxu.cdg3s_huawei.entity.Goods;
 import org.springframework.stereotype.Repository;
 
