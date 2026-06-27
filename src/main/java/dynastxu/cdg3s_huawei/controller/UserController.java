@@ -1,6 +1,7 @@
 package dynastxu.cdg3s_huawei.controller;
 
 import dynastxu.cdg3s_huawei.dto.LoginRequest;
+import dynastxu.cdg3s_huawei.dto.RegisterRequest;
 import dynastxu.cdg3s_huawei.entity.User;
 import dynastxu.cdg3s_huawei.service.UserService;
 import jakarta.validation.Valid;
@@ -31,6 +32,24 @@ public class UserController extends BaseController<UserService> {
                     "message", "登录成功"
             ));
         } catch (IllegalArgumentException | IllegalStateException e) {
+            return ResponseEntity.badRequest().body(Map.of(
+                    "success", false,
+                    "message", e.getMessage()
+            ));
+        }
+    }
+
+    @PostMapping("/register")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> register(@Valid @RequestBody RegisterRequest request) {
+        try {
+            User user = service.register(request.getUsername(), request.getPassword());
+
+            return ResponseEntity.ok(Map.of(
+                    "success", true,
+                    "message", "注册成功"
+            ));
+        } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(Map.of(
                     "success", false,
                     "message", e.getMessage()

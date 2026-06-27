@@ -36,7 +36,8 @@ public class SecurityConfig {
                                 "/category/**",
                                 "/goods/**",
                                 "/goodsImage/**",
-                                "/goodsTag/**"
+                                "/goodsTag/**",
+                                "/images/**"
                         ).permitAll()
                         // 其他所有请求都需要认证
                         .anyRequest().authenticated()

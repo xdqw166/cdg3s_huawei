@@ -16,7 +16,7 @@ public class UserService extends BaseService<UserRepository> {
 
     public User register(String username, String password) throws IllegalArgumentException {
         if (repository.existsByUsername(username)) {
-            throw new IllegalArgumentException("Username is already in use");
+            throw new IllegalArgumentException("用户名已存在");
         }
 
         String encodedPassword = passwordEncoder.encode(password);
@@ -32,11 +32,11 @@ public class UserService extends BaseService<UserRepository> {
                 .orElseThrow(() -> new IllegalArgumentException("用户名或密码错误"));
 
         if (user.getLocked()) {
-            throw new IllegalStateException("账户已被锁定，请稍后再试");
+            throw new IllegalStateException("用户已被锁定，请稍后再试");
         }
 
         if (!user.getEnabled()) {
-            throw new IllegalStateException("账户未激活");
+            throw new IllegalStateException("用户未激活");
         }
 
         if (!passwordEncoder.matches(rawPassword, user.getPassword())) {
