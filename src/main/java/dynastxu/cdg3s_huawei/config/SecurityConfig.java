@@ -18,15 +18,34 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * 配置 Spring Security 过滤器链。
+     *
+     * @param http HttpSecurity 配置对象
+     * @return 构建好的 SecurityFilterChain
+     */
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         http
+                // 配置URL访问权限
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/user/register", "/user/login").permitAll()
+                        // 允许匿名访问的接口
+                        .requestMatchers(
+                                "/user/register",
+                                "/user/login",
+                                "/category/**",
+                                "/goods/**",
+                                "/goodsImage/**",
+                                "/goodsTag/**"
+                        ).permitAll()
+                        // 其他所有请求都需要认证
                         .anyRequest().authenticated()
                 )
+                // 禁用 CSRF 保护（适用于无状态 REST API）
                 .csrf(AbstractHttpConfigurer::disable)
+                // 禁用表单登录（使用自定义认证逻辑）
                 .formLogin(AbstractHttpConfigurer::disable)
+                // 禁用 HTTP Basic 认证
                 .httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
