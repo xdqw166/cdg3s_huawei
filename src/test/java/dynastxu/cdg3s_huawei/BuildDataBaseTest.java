@@ -67,6 +67,8 @@ public class BuildDataBaseTest {
         service.saveOrUpdate(new Category("Note系列", service.findByName("REDMI手机")));
         service.saveOrUpdate(new Category("Turbo系列", service.findByName("REDMI手机")));
         service.saveOrUpdate(new Category("数字系列", service.findByName("REDMI手机")));
+        //测试阶段
+
     }
 
     private void buildGoodsImage() {
