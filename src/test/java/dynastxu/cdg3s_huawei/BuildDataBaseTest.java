@@ -70,6 +70,97 @@ public class BuildDataBaseTest {
         service.saveOrUpdate(new Category("数字系列", service.findByName("REDMI手机")));
 
         service.saveOrUpdate(new Category("Xiaomi配件", service.findByName("手机配件")));
+        service.saveOrUpdate(new Category("REDMI手机配件", service.findByName("手机配件")));
+        service.saveOrUpdate(new Category("创意配件", service.findByName("手机配件")));
+
+        service.saveOrUpdate(new Category("Xiaomi平板", service.findByName("平板")));
+        service.saveOrUpdate(new Category("REDMI平板", service.findByName("平板")));
+        service.saveOrUpdate(new Category("平板配件", service.findByName("平板")));
+
+        service.saveOrUpdate(new Category("智能手环", service.findByName("智能穿戴")));
+        service.saveOrUpdate(new Category("智能手表", service.findByName("智能穿戴")));
+        service.saveOrUpdate(new Category("智能耳机", service.findByName("智能穿戴")));
+        service.saveOrUpdate(new Category("其他穿戴", service.findByName("智能穿戴")));
+
+        service.saveOrUpdate(new Category("笔记本", service.findByName("电脑办公")));
+        service.saveOrUpdate(new Category("显示器", service.findByName("电脑办公")));
+        service.saveOrUpdate(new Category("办公配件", service.findByName("电脑办公")));
+
+        service.saveOrUpdate(new Category("旗舰系列", service.findByName("电视")));
+        service.saveOrUpdate(new Category("性价比爆款", service.findByName("电视")));
+        service.saveOrUpdate(new Category("巨幕影院", service.findByName("电视")));
+        service.saveOrUpdate(new Category("激光投影", service.findByName("电视")));
+        service.saveOrUpdate(new Category("小米盒子", service.findByName("电视")));
+        service.saveOrUpdate(new Category("电视周边", service.findByName("电视")));
+
+        service.saveOrUpdate(new Category("挂壁空调", service.findByName("空调")));
+        service.saveOrUpdate(new Category("立式空调", service.findByName("空调")));
+        service.saveOrUpdate(new Category("中央空调", service.findByName("空调")));
+        service.saveOrUpdate(new Category("中央空调配件", service.findByName("空调")));
+        service.saveOrUpdate(new Category("挂机/柜机配件", service.findByName("空调")));
+
+        service.saveOrUpdate(new Category("热销推荐", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("主推新品", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("波轮洗衣机", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("洗烘一体机", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("滚筒洗衣机", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("迷你/内衣洗", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("干衣机", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("洗烘套装", service.findByName("洗衣机")));
+        service.saveOrUpdate(new Category("蓝氧洗衣机", service.findByName("洗衣机")));
+
+        service.saveOrUpdate(new Category("热销系列", service.findByName("冰箱")));
+        service.saveOrUpdate(new Category("容积分类", service.findByName("冰箱")));
+        service.saveOrUpdate(new Category("门体分类", service.findByName("冰箱")));
+        service.saveOrUpdate(new Category("冰箱配件", service.findByName("冰箱")));
+
+        service.saveOrUpdate(new Category("清洁电器", service.findByName("小家电")));
+        service.saveOrUpdate(new Category("环境电器", service.findByName("小家电")));
+        service.saveOrUpdate(new Category("厨房小电", service.findByName("小家电")));
+        service.saveOrUpdate(new Category("个护电器", service.findByName("小家电")));
+
+        service.saveOrUpdate(new Category("小爱音响", service.findByName("智能家居")));
+        service.saveOrUpdate(new Category("路由器", service.findByName("智能家居")));
+        service.saveOrUpdate(new Category("智能安防", service.findByName("智能家居")));
+        service.saveOrUpdate(new Category("智能家装", service.findByName("智能家居")));
+        service.saveOrUpdate(new Category("智能控制", service.findByName("智能家居")));
+        service.saveOrUpdate(new Category("智能传灯具", service.findByName("智能家居")));
+        service.saveOrUpdate(new Category("智能酷玩", service.findByName("智能家居")));
+
+        service.saveOrUpdate(new Category("户外出行", service.findByName("出行运动")));
+        service.saveOrUpdate(new Category("运动健康", service.findByName("出行运动")));
+        service.saveOrUpdate(new Category("箱包", service.findByName("出行运动")));
+
+        service.saveOrUpdate(new Category("通用品", service.findByName("车周边")));
+        service.saveOrUpdate(new Category("XiaomiLife", service.findByName("车周边")));
+
+        service.saveOrUpdate(new Category("家具日用", service.findByName("日用百货")));
+        service.saveOrUpdate(new Category("个人护理", service.findByName("日用百货")));
+        service.saveOrUpdate(new Category("防护清洁", service.findByName("日用百货")));
+        service.saveOrUpdate(new Category("床品家居", service.findByName("日用百货")));
+        service.saveOrUpdate(new Category("鞋服配饰", service.findByName("日用百货")));
+
+        service.saveOrUpdate(new Category("热门推荐", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("电池服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("安装服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("手机服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("维修服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("清洁保养", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("勘测服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("保障服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("购买无忧", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("金融服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("通信服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("小米云服务", service.findByName("小米服务")));
+        service.saveOrUpdate(new Category("其他服务", service.findByName("小米服务")));
+
+        service.saveOrUpdate(new Category("热卖好物", service.findByName("有品精选")));
+        service.saveOrUpdate(new Category("有品爆品", service.findByName("有品精选")));
+        service.saveOrUpdate(new Category("日常元素", service.findByName("有品精选")));
+
+
+
+
 
     }
 
