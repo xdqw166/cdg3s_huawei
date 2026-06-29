@@ -23,4 +23,8 @@ public class GoodsService extends BaseService<GoodsRepository>{
     public List<Goods> findByCategoryId(Long id) {
         return repository.findByCategory_Id(id);
     }
+
+    public Goods findById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
 }

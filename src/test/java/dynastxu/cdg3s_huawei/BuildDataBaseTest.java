@@ -160,19 +160,17 @@ public class BuildDataBaseTest {
         service.saveOrUpdate(new Category("日常元素", service.findByName("有品精选")));
 
 
-
-
-
     }
 
     private void buildGoodsImage() {
         GoodsImageService service = goodsImageService;
         String rootPath = "/images/goods";
 
-        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/1.png"));
-        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/2.png"));
-        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/3.png"));
-        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/4.png"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/0.png"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/1.jpg"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/2.jpg"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/3.jpg"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/4.jpg"));
     }
 
     private void buildGoodsTag() {
@@ -188,14 +186,21 @@ public class BuildDataBaseTest {
 
         service.saveIfUnique(Goods.builder()
                 .name("Xiaomi 17T Pro")
-                .price(3999f)
+                .price(4299f)
+                .discountedPrice(3999f)
                 .isStartingPrice(true)
                 .category(categoryService.findByName("Xiaomi 数字旗舰"))
                 .goodsTag(List.of(
                         goodsTagService.findByName("小米上新"),
                         goodsTagService.findByName("换新补贴")
                 ))
-                .mainImage(goodsImageService.findByImagePath("/images/goods/xiaomi_17t_pro/1.png"))
+                .mainImage(goodsImageService.findByImagePath("/images/goods/xiaomi_17t_pro/0.png"))
+                .images(List.of(
+                        goodsImageService.findByImagePath("/images/goods/xiaomi_17t_pro/1.jpg"),
+                        goodsImageService.findByImagePath("/images/goods/xiaomi_17t_pro/2.jpg"),
+                        goodsImageService.findByImagePath("/images/goods/xiaomi_17t_pro/3.jpg"),
+                        goodsImageService.findByImagePath("/images/goods/xiaomi_17t_pro/4.jpg")
+                ))
                 .build()
         );
     }

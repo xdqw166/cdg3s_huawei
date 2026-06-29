@@ -11,4 +11,6 @@ public interface GoodsRepository extends BaseRepository<Goods, Integer> {
     Optional<Goods> findByName(String name);
 
     List<Goods> findByCategory_Id(Long categoryId);
+
+    Optional<Goods> findById(Long id);
 }

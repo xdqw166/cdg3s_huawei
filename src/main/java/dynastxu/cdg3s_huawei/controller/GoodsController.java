@@ -20,4 +20,10 @@ public class GoodsController extends BaseController<GoodsService> {
     public List<Goods> getCategoryGoods(Long categoryId) {
         return service.findByCategoryId(categoryId);
     }
+
+    @RequestMapping("")
+    @ResponseBody
+    public Goods getGoods(Long id) {
+        return service.findById(id);
+    }
 }

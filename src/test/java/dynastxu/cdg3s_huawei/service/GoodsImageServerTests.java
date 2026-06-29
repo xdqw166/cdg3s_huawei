@@ -14,9 +14,9 @@ public class GoodsImageServerTests {
 
     @Test
     void saveAll() {
-        service.saveIfUnique(new GoodsImage(rootPath+ "/xiaomi_17t_pro/1.png"));
-        service.saveIfUnique(new GoodsImage(rootPath+ "/xiaomi_17t_pro/2.png"));
-        service.saveIfUnique(new GoodsImage(rootPath+ "/xiaomi_17t_pro/3.png"));
-        service.saveIfUnique(new GoodsImage(rootPath+ "/xiaomi_17t_pro/4.png"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/1.jpg"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/2.jpg"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/3.jpg"));
+        service.saveIfUnique(new GoodsImage(rootPath + "/xiaomi_17t_pro/4.jpg"));
     }
 }
