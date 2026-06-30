@@ -10,13 +10,8 @@ public class GoodsTagService extends BaseService<GoodsTagRepository> {
         super(repository);
     }
 
-    public GoodsTag saveOrUpdate(GoodsTag tag) {
-        GoodsTag existing = repository.findByName(tag.getName()).orElse(null);
-        if (existing != null) {
-            tag.setId(existing.getId());
-            return repository.save(tag);
-        }
-        return repository.save(tag);
+    public GoodsTag save(GoodsTag goodsTag) {
+        return repository.save(goodsTag);
     }
 
     public GoodsTag findByName(String name) {

@@ -16,13 +16,6 @@ public class GoodsImageService extends BaseService<GoodsImageRepository> {
         return repository.save(goodsImage);
     }
 
-    public GoodsImage saveIfUnique(GoodsImage goodsImage) {
-        if (repository.findByImagePath(goodsImage.getImagePath()).isEmpty()) {
-            return repository.save(goodsImage);
-        }
-        return goodsImage;
-    }
-
     public GoodsImage findById(Long id) {
         return repository.findById(id).orElse(null);
     }

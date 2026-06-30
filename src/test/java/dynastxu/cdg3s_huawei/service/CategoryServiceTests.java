@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -19,40 +18,40 @@ public class CategoryServiceTests {
     @Test
     void save() {
         Category category = new Category("Xiaomi手机");
-        service.saveOrUpdate(category);
+        service.save(category);
         assertNotNull(service.findByName("Xiaomi手机"));
     }
 
     @Test
     void saveAll() {
-        service.saveOrUpdate(new Category("Xiaomi手机"));
-        service.saveOrUpdate(new Category("REDMI手机"));
-        service.saveOrUpdate(new Category("手机配件"));
-        service.saveOrUpdate(new Category("平板"));
-        service.saveOrUpdate(new Category("智能穿戴"));
-        service.saveOrUpdate(new Category("电脑办公"));
-        service.saveOrUpdate(new Category("电视"));
-        service.saveOrUpdate(new Category("空调"));
-        service.saveOrUpdate(new Category("洗衣机"));
-        service.saveOrUpdate(new Category("冰箱"));
-        service.saveOrUpdate(new Category("厨房大电"));
-        service.saveOrUpdate(new Category("小家电"));
-        service.saveOrUpdate(new Category("智能家居"));
-        service.saveOrUpdate(new Category("出行运动"));
-        service.saveOrUpdate(new Category("车周边"));
-        service.saveOrUpdate(new Category("日用百货"));
-        service.saveOrUpdate(new Category("小米服务"));
-        service.saveOrUpdate(new Category("儿童用品"));
-        service.saveOrUpdate(new Category("有品精选"));
+        service.save(new Category("Xiaomi手机"));
+        service.save(new Category("REDMI手机"));
+        service.save(new Category("手机配件"));
+        service.save(new Category("平板"));
+        service.save(new Category("智能穿戴"));
+        service.save(new Category("电脑办公"));
+        service.save(new Category("电视"));
+        service.save(new Category("空调"));
+        service.save(new Category("洗衣机"));
+        service.save(new Category("冰箱"));
+        service.save(new Category("厨房大电"));
+        service.save(new Category("小家电"));
+        service.save(new Category("智能家居"));
+        service.save(new Category("出行运动"));
+        service.save(new Category("车周边"));
+        service.save(new Category("日用百货"));
+        service.save(new Category("小米服务"));
+        service.save(new Category("儿童用品"));
+        service.save(new Category("有品精选"));
 
-        service.saveOrUpdate(new Category("Xiaomi 数字旗舰", service.findByName("Xiaomi手机")));
-        service.saveOrUpdate(new Category("Xiaomi MIX系列", service.findByName("Xiaomi手机")));
-        service.saveOrUpdate(new Category("Xiaomi Civi", service.findByName("Xiaomi手机")));
-        service.saveOrUpdate(new Category("Xiaomi手机套装", service.findByName("Xiaomi手机")));
-        service.saveOrUpdate(new Category("K系列", service.findByName("REDMI手机")));
-        service.saveOrUpdate(new Category("Note系列", service.findByName("REDMI手机")));
-        service.saveOrUpdate(new Category("Turbo系列", service.findByName("REDMI手机")));
-        service.saveOrUpdate(new Category("数字系列", service.findByName("REDMI手机")));
+        service.save(new Category("Xiaomi 数字旗舰", service.findByName("Xiaomi手机")));
+        service.save(new Category("Xiaomi MIX系列", service.findByName("Xiaomi手机")));
+        service.save(new Category("Xiaomi Civi", service.findByName("Xiaomi手机")));
+        service.save(new Category("Xiaomi手机套装", service.findByName("Xiaomi手机")));
+        service.save(new Category("K系列", service.findByName("REDMI手机")));
+        service.save(new Category("Note系列", service.findByName("REDMI手机")));
+        service.save(new Category("Turbo系列", service.findByName("REDMI手机")));
+        service.save(new Category("数字系列", service.findByName("REDMI手机")));
     }
 
     @Test

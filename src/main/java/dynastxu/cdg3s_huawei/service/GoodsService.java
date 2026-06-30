@@ -12,12 +12,8 @@ public class GoodsService extends BaseService<GoodsRepository>{
         super(repository);
     }
 
-    public Goods saveIfUnique(Goods goods) {
-        Goods existing = repository.findByName(goods.getName()).orElse(null);
-        if (existing == null) {
-            return repository.save(goods);
-        }
-        return goods;
+    public Goods save(Goods goods) {
+        return repository.save(goods);
     }
 
     public List<Goods> findByCategoryId(Long id) {

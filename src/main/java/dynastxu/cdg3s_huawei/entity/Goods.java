@@ -18,23 +18,20 @@ public class Goods {
     @NotNull
     private String name;
 
-    @NotNull
     private Float price;
 
     private Float discountedPrice;
 
-    @NotNull
-    private Boolean isStartingPrice = false;
+    private Float startingPrice;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "goods_id")
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<GoodsTag> goodsTag;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     private Category category;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     private GoodsImage mainImage;
 
@@ -49,14 +46,14 @@ public class Goods {
 
     @Builder
     public Goods(
-            @NotNull Float price,
+            Float price,
             @NotNull String name,
             Float discountedPrice,
             List<GoodsTag> goodsTag,
             Category category,
             GoodsImage mainImage,
             List<GoodsImage> images,
-            @NotNull Boolean isStartingPrice
+            Float startingPrice
     ) {
         this.price = price;
         this.name = name;
@@ -65,6 +62,6 @@ public class Goods {
         this.category = category;
         this.mainImage = mainImage;
         this.images = images;
-        this.isStartingPrice = isStartingPrice;
+        this.startingPrice = startingPrice;
     }
 }

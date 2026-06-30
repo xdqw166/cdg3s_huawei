@@ -17,15 +17,6 @@ public class CategoryService extends BaseService<CategoryRepository> {
         return repository.save(category);
     }
 
-    public Category saveOrUpdate(Category category) {
-        Category existing = findByName(category.getName());
-        if (existing != null) {
-            existing.setParent(category.getParent());
-            return save(existing);
-        }
-        return save(category);
-    }
-
     public Category findByName(String name) {
         return repository.findByName(name).orElse(null);
     }
